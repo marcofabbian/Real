@@ -3,10 +3,10 @@ using Common.DomainModel;
 
 namespace Real.DomainModel
 {
-    public class RealProperty
+    public class Property
     {
 
-        public RealProperty(Guid? id, Address address, Type type, int room, int bath, float price, float space, int year, int floor)
+        public Property(Guid? id, Address address, Type type, int room, int bath, float price, float space, int year, int floor)
         {
             if (!id.HasValue)
             {
@@ -24,7 +24,7 @@ namespace Real.DomainModel
             Floor = floor;
         }
 
-        public RealProperty(Address address, Type type, int room, int bath, float price, float space, int year, int floor) : this(null, address, type, room, bath, price, space, year, floor)
+        public Property(Address address, Type type, int room, int bath, float price, float space, int year, int floor) : this(null, address, type, room, bath, price, space, year, floor)
         {
             ;
         }
