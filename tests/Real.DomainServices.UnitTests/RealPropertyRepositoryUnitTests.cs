@@ -20,47 +20,32 @@ namespace Real.DomainServices.UnitTests
     public class RealPropertyRepositoryUnitTests
     {
         private Guid Id1 = new Guid("86ACE1D3-7EB6-4CD5-9263-50BC226089ED");
-        private RealProperty property1;
+        private Property property1;
 
         private Guid Id2 = new Guid("36F49968-6595-439B-AD4D-413506FD55AA");
-        private RealProperty property2;
+        private Property property2;
 
-        private IList<RealProperty> properties;
-        private Mock<IRealPropertyRepository> mock;
-        private IRealPropertyRepository repository;
+        private IList<Property> properties;
+        private Mock<IPropertyRepository> mock;
+        private IPropertyRepository repository;
 
         [SetUp]
         public void Setup()
         {
-            var address1 = new Address()
-            {
-                City = "Zurich",
-                Number = "28",
-                Region = "Zurich",
-                Road = "Europastrasse",
-                State = "Switzerland",
-                ZipCode = "8016"
-            };
-            var address2 = new Address()
-            {
-                City = "Zurich",
-                Number = "100",
-                Region = "Zurich",
-                Road = "Germaniastrasse",
-                State = "Switzerland",
-                ZipCode = "8022"
-            };
+            var address1 = new Address("Zurich", "44", "Zurich", "Europa strasse", "Switzerland", "8016");
 
-            property1 = new RealProperty(Id1, address1, DomainModel.Type.Apartment, 2, 2, 2000, 200, 2000, 1);
-            property2 = new RealProperty(Id2, address2, DomainModel.Type.House, 2, 2, 2000, 200, 2000, 3);
+            var address2 = new Address("Bern", "77", "Bern", "Germania strasse", "Switzerland", "5009");
 
-            properties = new List<RealProperty>()
+            property1 = new Property(Id1, address1, DomainModel.Type.Apartment, 2, 2, 2000, 200, 2000, 1);
+            property2 = new Property(Id2, address2, DomainModel.Type.House, 2, 2, 2000, 200, 2000, 3);
+
+            properties = new List<Property>()
             {
                 property1,
                 property2
             };
 
-            mock = new Mock<IRealPropertyRepository>();
+            mock = new Mock<IPropertyRepository>();
             mock
                 .Setup(x => x.Get(Id1))
                 .Returns(property1);

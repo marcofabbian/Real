@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.DomainModel\Common.DomainModel.csproj" />
+    <ProjectReference Include="..\Real.DomainModel\Real.DomainModel.csproj" />
+    <ProjectReference Include="..\Real.DomainServices.PropertyRepository\Real.DomainServices.PropertyRepository.csproj" />
+    <ProjectReference Include="..\Real.DomainServices\Real.DomainServices.csproj" />
+  </ItemGroup>
+
+
+</Project>

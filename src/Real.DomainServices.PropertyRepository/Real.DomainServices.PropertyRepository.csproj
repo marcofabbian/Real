@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.DomainModel\Common.DomainModel.csproj" />
+    <ProjectReference Include="..\Real.DomainModel\Real.DomainModel.csproj" />
+    <ProjectReference Include="..\Real.DomainServices\Real.DomainServices.csproj" />
+  </ItemGroup>
+
+</Project>
