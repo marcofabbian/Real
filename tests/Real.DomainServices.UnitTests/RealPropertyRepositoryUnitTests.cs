@@ -19,10 +19,10 @@ namespace Real.DomainServices.UnitTests
 
     public class RealPropertyRepositoryUnitTests
     {
-        private Guid Id1 = new Guid("86ACE1D3-7EB6-4CD5-9263-50BC226089ED");
+        private int Id1 = 1;
         private Property property1;
 
-        private Guid Id2 = new Guid("36F49968-6595-439B-AD4D-413506FD55AA");
+        private int Id2 = 2;
         private Property property2;
 
         private IList<Property> properties;
@@ -32,9 +32,9 @@ namespace Real.DomainServices.UnitTests
         [SetUp]
         public void Setup()
         {
-            var address1 = new Address("Zurich", "44", "Zurich", "Europa strasse", "Switzerland", "8016");
+            var address1 = new Address(1, "Zurich", "44", "Zurich", "Europa strasse", "Switzerland", "8016");
 
-            var address2 = new Address("Bern", "77", "Bern", "Germania strasse", "Switzerland", "5009");
+            var address2 = new Address(2, "Bern", "77", "Bern", "Germania strasse", "Switzerland", "5009");
 
             property1 = new Property(Id1, address1, DomainModel.Type.Apartment, 2, 2, 2000, 200, 2000, 1);
             property2 = new Property(Id2, address2, DomainModel.Type.House, 2, 2, 2000, 200, 2000, 3);

@@ -19,7 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Real.DomainServices.UnitTes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Real.WebApi", "src\Real.WebApi\Real.WebApi.csproj", "{6FD14763-F144-489D-8F9E-58A96F48FD75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Real.DomainServices.PropertyRepository", "src\Real.DomainServices.PropertyRepository\Real.DomainServices.PropertyRepository.csproj", "{7FB403E3-B42C-4705-B308-C15E72E0E0F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Real.DomainServices.PropertyRepository", "src\Real.DomainServices.PropertyRepository\Real.DomainServices.PropertyRepository.csproj", "{7FB403E3-B42C-4705-B308-C15E72E0E0F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0227B14-476B-4C2D-B7BF-B9FE0CFB2A44}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

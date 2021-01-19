@@ -1,54 +1,51 @@
-﻿using Real.DomainModel;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Real.DomainModel;
 using System.Collections.Generic;
+using System.Linq;
 using Common.DomainModel;
 
 namespace Real.DomainServices.PropertyRepository
 {
     public class PropertyRepository : IPropertyRepository
     {
-        public Property Get(Guid id)
+
+        private readonly PropertyContext Context;
+
+        public PropertyRepository(PropertyContext context)
         {
-            return new Property(Guid.NewGuid(),
-                new Address("Zurich", "44", "Zurich", "Europa strasse", "Switzerland", "8016"),
-                DomainModel.Type.Apartment,
-                2,
-                2,
-                2000,
-                200,
-                2000,
-                1);
+            this.Context = context;
+            DbInitializer.Initialize(context);
+        }
+
+        public Property Get(int id)
+        {
+            return 
+                Context.Properties
+                    .Include(x => x.Address)
+                    .FirstOrDefault(x=>x.Id == id);
         }
 
         public IList<Property> GetList()
         {
-            return
-                new List<Property>()
-                {
-                    new Property(Guid.NewGuid(),
-                        new Address("Zurich", "44", "Zurich", "Europa strasse", "Switzerland", "8016"),
-                        DomainModel.Type.Apartment,
-                        2,
-                        2,
-                        2000,
-                        200,
-                        2000,
-                        1),
-                    new Property(Guid.NewGuid(),
-                        new Address("Bern", "77", "Bern", "Germania strasse", "Switzerland", "5009"),
-                    DomainModel.Type.House,
-                    2,
-                    2,
-                    2000,
-                    200,
-                    2000,
-                    3)
-                };
+            return Context.Properties
+                .Include(x=>x.Address)
+                .ToList();
         }
 
         public bool Set(Property property)
         {
-            return true;
+            try
+            {
+                Context.Properties
+                    .Add(property);
+                return Context.SaveChanges() > 0 ? true : false;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
