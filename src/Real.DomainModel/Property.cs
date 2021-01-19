@@ -5,15 +5,14 @@ namespace Real.DomainModel
 {
     public class Property
     {
-
-        public Property(Guid? id, Address address, Type type, int room, int bath, float price, float space, int year, int floor)
+        public Property()
         {
-            if (!id.HasValue)
-            {
-                id = new Guid();
-            }
+            ;
+        }
 
-            Id = id.Value;
+        public Property(int id, Address address, Type type, int room, int bath, float price, float space, int year, int floor)
+        {
+            Id = id;
             Address = address;
             Type = type;
             Room = room;
@@ -24,19 +23,14 @@ namespace Real.DomainModel
             Floor = floor;
         }
 
-        public Property(Address address, Type type, int room, int bath, float price, float space, int year, int floor) : this(null, address, type, room, bath, price, space, year, floor)
-        {
-            ;
-        }
-
-        protected Guid Id { get; set; }
-        protected Address Address { get; set; }
-        protected Type Type { get; set; }
-        protected int Room { get; set; }
-        protected int Bath { get; set; }
-        protected float Price { get; set; }
-        protected float Space { get; set; }
-        protected int Year { get; set; }
-        protected int Floor { get; set; }
+        public int Id { get; set; }
+        public Address Address { get; set; }
+        public Type Type { get; set; }
+        public int Room { get; set; }
+        public int Bath { get; set; }
+        public float Price { get; set; }
+        public float Space { get; set; }
+        public int Year { get; set; }
+        public int Floor { get; set; }
     }
 }

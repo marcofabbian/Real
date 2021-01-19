@@ -1,7 +1,7 @@
 ﻿using System;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Real.DomainModel;
 using Real.DomainServices;
 
 
@@ -25,14 +25,39 @@ namespace Real.WebApi.Controllers
         public IActionResult Get()
         {
             logger.LogInformation("Get Properties");
-            return Ok(repository.GetList());
+            try
+            {
+                return Ok(repository.GetList());
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public IActionResult Get(int id)
         {
-            logger.LogInformation("Get Properties");
-            return Ok(repository.Get(id));
+            logger.LogInformation("Get Property");
+            try
+            {
+                var result = repository.Get(id);
+
+                if (result == null)
+                {
+                    logger.LogInformation($"Return NotFound({id})");
+                    return NotFound();
+                }
+
+                logger.LogInformation($"Return ok({id})");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Real.DomainServices
 {
     public interface IPropertyRepository
     {
-        public Property Get(Guid id);
+        public Property Get(int id);
 
         public IList<Property> GetList();
 
