@@ -211,3 +211,9 @@ Education.Client.WebApi/Xsds/CurrentXsd/datamodel/Entity/SIFIdentityManagement.x
 /Education.Client.WebApi/App_Readme/App_Data
 *.orig
 .vs/config/applicationhost.config
+
+# Ignore the Visual Studio setting directory
+.vs/*
+
+# Ignore the artifacts directory
+./artifacts/*
