@@ -6,5 +6,5 @@ array=$(ls -d $source_directory/*)
 
 for i in $array
 do
-        cp -R $i $target_directory/
+        sudo cp -R $i $target_directory/
 done
